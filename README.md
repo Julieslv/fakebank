@@ -1,5 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -66,3 +67,18 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+## Additonal Tools an libraries
+
+### [Styled Components](https://styled-components.com/)
+I have chosen styled components as I think that this allows your to folow the idea of building componets using the [atomic design methodology](https://atomicdesign.bradfrost.com/chapter-2/).
+
+CSS in JS allows us to use our components out the box without having to include any external files. They should just work.
+
+Further but out of scope for this project it would be better to include [Storybook](https://storybook.js.org/) when developing components so as to avoid duplication and giving both designers and developers a visual reference of everything in the project.
+
+### [Style-lint](https://stylelint.io/)
+
+### [React-Axe](https://stylelint.io/)
+
+
