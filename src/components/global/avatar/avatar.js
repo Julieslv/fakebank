@@ -14,7 +14,6 @@ const Avatar = styled.div`
 `;
 
 const avatar = (props) => {
-  console.log(props)
   return (
     <Avatar className="avatar" color={props.color}>
       {props.initial}
