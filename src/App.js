@@ -1,13 +1,16 @@
 import React from 'react';
-import { GlobalStyle } from './global/styles/index.js'
-import Header from './header/header'
+import { GlobalStyle } from './components/global/styles/index'
+import Header from './components/header/header'
 
 
 function App() {
   return (
     <div className="App">
       <GlobalStyle />
-      <Header/>
+      <Header color="#006BCD" />
+      <main className="main">
+
+      </main>
     </div>
   );
 }
