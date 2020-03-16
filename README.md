@@ -92,18 +92,18 @@ Useful for Accessibility development
 ## improvements and considerations
 ### TODO - a few points
 * Finish off layout
-  ** the layout for desktop is significantly different from desktop.. in terms of behaviour... while this may make sense from a UX perspective, it may result in having to duplicate components, one for mobile and another for desktop which I want to avoid while accommodating the desktop behaviour. In the world of SPA's this may not be such a bad thing since SEO would not be of concern here.
+  * the layout for desktop is significantly different from desktop.. in terms of behaviour... while this may make sense from a UX perspective, it may result in having to duplicate components, one for mobile and another for desktop which I want to avoid while accommodating the desktop behaviour. In the world of SPA's this may not be such a bad thing since SEO would not be of concern here.
 
   Plan would be to have two different behaviours on click for desktop and mobile. Desktop would expand the content while mobile would render a different component with details.
 
   The header has the potential for a colour property to be passed to it. I am not sure where or how this would be stored and may need to be discussed with someone more technical than myself.
 
-  ** font-sizes are in px, but should be in em and rem. Would be nice to add a library that could do the calculation for us. so we could write something like [styled-units](https://www.npmjs.com/package/styled-units)
+  * font-sizes are in px, but should be in em and rem. Would be nice to add a library that could do the calculation for us. so we could write something like [styled-units](https://www.npmjs.com/package/styled-units)
 
 * navigation bottom menu for mobile
 * add a loading to the list
 * populate the list with data from the endpoint
-  ** I had issues with getting the endpoint to work... I had a syntax error in my hook that resulted in an empty object. :unamused:
+  * I had issues with getting the endpoint to work... I had a syntax error in my hook that resulted in an empty object. :unamused:
   ** The idea is to extract the data from the endpoint into a new array, depending on the date as there are two grouping, one by state then the items in the list for each date. I think this may be a loop in a loop, but I am not too certain how good practice this is and if another better approach may ne needed.
 
 * Routes using [react router](https://reacttraining.com/react-router/web/example/url-params)
