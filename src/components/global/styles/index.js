@@ -11,7 +11,8 @@ export const GlobalStyle = createGlobalStyle`
   }
   // You can continue writing global styles here
   body {
-    background-color:#f4f4f4;
+    background-color:#ffffff;
+    color: #03213D;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
   }

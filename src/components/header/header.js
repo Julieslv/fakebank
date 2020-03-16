@@ -161,7 +161,7 @@ export const header = (props) => {
         </AccountLabel>
 
         <AccountDetails className="scroll active">
-          <Avatar initial="JS" position="right" color={props.color}/>
+          <Avatar initials="JS" position="right" color={props.color}/>
           <h2>Account details</h2>
           <div className="details">
             <div>

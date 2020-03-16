@@ -3,7 +3,7 @@ import Transactions from './transactions'
 
 const TransactionsContainer = props => {
 
-  const { transactions, setTransactions } = useState([]);
+  const [ transactions, setTransactions ] = useState([]);
 
   useEffect( () => {
     fetch('http://dev-test.torca.io/transactions')
@@ -15,6 +15,8 @@ const TransactionsContainer = props => {
         console.log(err);
       });
   }, []);
+
+  // console.log(transactions)
 
   return <Transactions transactions={transactions}/>
 }
