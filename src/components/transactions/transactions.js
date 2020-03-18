@@ -78,7 +78,7 @@ const purple = '#BB6BD9'; */
 
 
 const transactions = (props) => {
-  console.log('props', props);
+  // console.log('props', props);
   return (
     <Transactions>
       <Filter>

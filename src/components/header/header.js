@@ -145,12 +145,20 @@ const AccountDetails = styled.div`
   }
 `;
 
-export const header = (props) => {
+export const header =( { info, color }) => {
+
+  console.log(typeof info);
+  // console.log(info[0]);
+  // console.log(info[0].forenames);
+  // const { forenames, surname, 'account-number' : acccountNumber, 'sort-code': sortCode, currency, 'currency-precision': currencyPrecision, balance } = info;
+  // console.log(forenames);
+  // const {forenames, surname, balance} = info[0];
 
   //TODO: add a function to control the slider on small viewports.
 
+
   return (
-    <Header color={props.color}>
+    <Header color={color}>
       <ShapeLeft className="shape-left" />
       <ShapeRight className="shape-right" />
       <div className="container">
@@ -161,12 +169,12 @@ export const header = (props) => {
         </AccountLabel>
 
         <AccountDetails className="scroll active">
-          <Avatar initials="JS" position="right" color={props.color}/>
+          <Avatar initial="JS" position="right" color={color}/>
           <h2>Account details</h2>
           <div className="details">
             <div>
               <h3>Beneficiary</h3>
-              <div>John Smith</div>
+              <div>{info.forenames} Smith</div>
             </div>
             <div>
               <h3>Account number</h3>
