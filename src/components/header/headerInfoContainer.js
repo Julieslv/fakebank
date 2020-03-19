@@ -10,8 +10,7 @@ const HeaderInfoContainer = () => {
     fetch('http://dev-test.torca.io/info')
       .then(response => response.json())
       .then(results => {
-        const info = results.data;
-        console.log(results)
+        const info = results.data[0];
         setInfo(info);
       }).catch(err => {
         console.log(err);

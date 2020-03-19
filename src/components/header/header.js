@@ -145,17 +145,46 @@ const AccountDetails = styled.div`
   }
 `;
 
-export const header =( { info, color }) => {
+const getInitials = (forenames, surname) => {
+  let initials
+  if (forenames !== undefined) return initials = forenames.charAt(0) + surname.charAt(0);
+}
 
-  console.log(typeof info);
-  // console.log(info[0]);
-  // console.log(info[0].forenames);
-  // const { forenames, surname, 'account-number' : acccountNumber, 'sort-code': sortCode, currency, 'currency-precision': currencyPrecision, balance } = info;
-  // console.log(forenames);
-  // const {forenames, surname, balance} = info[0];
+const formatBalance = (currency, balance, currencyPrecision) =>{
+    const currencySymbols = {
+    'USD': '$', // US Dollar
+    'EUR': '€', // Euro
+    'CRC': '₡', // Costa Rican Colón
+    'GBP': '£', // British Pound Sterling
+    'ILS': '₪', // Israeli New Sheqel
+    'INR': '₹', // Indian Rupee
+    'JPY': '¥', // Japanese Yen
+    'KRW': '₩', // South Korean Won
+    'NGN': '₦', // Nigerian Naira
+    'PHP': '₱', // Philippine Peso
+    'PLN': 'zł', // Polish Zloty
+    'PYG': '₲', // Paraguayan Guarani
+    'THB': '฿', // Thai Baht
+    'UAH': '₴', // Ukrainian Hryvnia
+    'VND': '₫', // Vietnamese Dong
+    };
+
+    const value = Number.parseFloat(balance /= Math.pow(10, currencyPrecision)).toFixed(currencyPrecision)
+    const rawUnit = value.split('.');
+    const units = {
+      superUnit : rawUnit[0].toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,'),
+      subUnit: rawUnit[1],
+      currencySymbol: currencySymbols[currency],
+    }
+    return units
+
+}
+export const header =( { info, color }) => {
+  const { forenames, surname, 'account-number': acccountNumber, 'sort-code': sortCode, currency, 'currency-precision': currencyPrecision, balance } = info;
+  const balanceUnits = formatBalance(currency, balance, currencyPrecision);
+
 
   //TODO: add a function to control the slider on small viewports.
-
 
   return (
     <Header color={color}>
@@ -165,24 +194,24 @@ export const header =( { info, color }) => {
           <Logo className="logo" />
         <AccountLabel className="scroll">
           <h1>Individual account</h1>
-          <div className="currency">£3,500<i>.</i><span>50</span></div>
+          <div className="currency">{balanceUnits.currencySymbol}{balanceUnits.superUnit}<i>.</i><span>{balanceUnits.subUnit}</span></div>
         </AccountLabel>
 
         <AccountDetails className="scroll active">
-          <Avatar initial="JS" position="right" color={color}/>
+          <Avatar initials={getInitials(forenames, surname)} position="right" color={color}/>
           <h2>Account details</h2>
           <div className="details">
             <div>
               <h3>Beneficiary</h3>
-              <div>{info.forenames} Smith</div>
+              <div>{forenames} {surname}</div>
             </div>
             <div>
               <h3>Account number</h3>
-              <div>Account number</div>
+              <div>{acccountNumber}</div>
             </div>
             <div>
               <h3>Sort code</h3>
-              <div>15-15-15</div>
+              <div>{sortCode}</div>
             </div>
           </div>
         </AccountDetails>
